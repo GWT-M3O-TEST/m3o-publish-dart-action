@@ -17,7 +17,7 @@ echo "${PUB_CREDENTIALS}" > ~/.config/dart/pub-credentials.json
 
 echo 'dart-publisher-action-> publishing m3o-dart to pub.dev ...'
 
-if [ ! -f '~/.config/dart/pub-credentials.json' ]
+if [ ! -f ~/.config/dart/pub-credentials.json ]
 then
         echo "missing credentials"
         exit 1
