@@ -1,0 +1,17 @@
+name: 'dart publish setup'
+description: 'This action will setup m3o-dart for publishing'
+
+inputs:
+  pub_credentials: 
+    description: 'dart pub.dev credentials'
+    required: true
+
+outputs:
+  success:
+    description: 'The result of this Action'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.pub_credentials }}
