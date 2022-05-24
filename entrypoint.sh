@@ -10,6 +10,11 @@ ls -al
 
 echo 'dart-publisher-action-> dary run dart publish'
 dart pub lish --dry-run
+if [ ! $? -eq 0 ]
+then
+    echo 'dry run has faild'
+    exit 1
+fi
 
 echo 'dart-publisher-action-> setting up pub-credentials.josn file ...'
 mkdir -p ~/.config/dart
@@ -19,8 +24,8 @@ echo 'dart-publisher-action-> publishing m3o-dart to pub.dev ...'
 
 if [ ! -f ~/.config/dart/pub-credentials.json ]
 then
-        echo "missing credentials"
-        exit 1
+    echo "missing credentials"
+    exit 1
 fi
 
 dart pub lish -f
